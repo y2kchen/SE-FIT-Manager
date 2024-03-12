@@ -1,0 +1,12 @@
+C:\SE-FIT manager\obj\Debug\SE-FIT manager.vbproj.AssemblyReference.cache
+C:\SE-FIT manager\obj\Debug\SE_FIT_manager.Manager.resources
+C:\SE-FIT manager\obj\Debug\SE_FIT_manager.Resources.resources
+C:\SE-FIT manager\obj\Debug\SE-FIT manager.vbproj.GenerateResource.cache
+C:\SE-FIT manager\obj\Debug\SE-FIT manager.vbproj.CoreCompileInputs.cache
+C:\SE-FIT-Code\bin\SE-FIT manager.exe.config
+C:\SE-FIT-Code\bin\SE-FIT manager.exe
+C:\SE-FIT-Code\bin\SE-FIT manager.pdb
+C:\SE-FIT-Code\bin\SE-FIT manager.xml
+C:\SE-FIT manager\obj\Debug\SE-FIT manager.exe
+C:\SE-FIT manager\obj\Debug\SE-FIT manager.xml
+C:\SE-FIT manager\obj\Debug\SE-FIT manager.pdb
