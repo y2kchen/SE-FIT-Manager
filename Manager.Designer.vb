@@ -35,6 +35,9 @@ Partial Class Manager
         Me.TbScrCor = New System.Windows.Forms.TextBox()
         Me.tbDumpFNameSuffix = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.NumCounter = New System.Windows.Forms.NumericUpDown()
+        CType(Me.NumCounter, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnCurrent
@@ -76,7 +79,7 @@ Partial Class Manager
         Me.BtnLaunch.BackColor = System.Drawing.Color.CornflowerBlue
         Me.BtnLaunch.Location = New System.Drawing.Point(29, 12)
         Me.BtnLaunch.Name = "BtnLaunch"
-        Me.BtnLaunch.Size = New System.Drawing.Size(162, 23)
+        Me.BtnLaunch.Size = New System.Drawing.Size(103, 23)
         Me.BtnLaunch.TabIndex = 78
         Me.BtnLaunch.Text = "Launch SE-FIT"
         Me.BtnLaunch.UseVisualStyleBackColor = False
@@ -84,7 +87,7 @@ Partial Class Manager
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(197, 22)
+        Me.Label2.Location = New System.Drawing.Point(138, 17)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(0, 13)
         Me.Label2.TabIndex = 79
@@ -166,11 +169,31 @@ Partial Class Manager
         Me.Label1.TabIndex = 91
         Me.Label1.Text = "Dump filename suffix"
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.Label4.Location = New System.Drawing.Point(292, 19)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(117, 13)
+        Me.Label4.TabIndex = 93
+        Me.Label4.Text = "Number of sessions"
+        '
+        'NumCounter
+        '
+        Me.NumCounter.Location = New System.Drawing.Point(415, 17)
+        Me.NumCounter.Name = "NumCounter"
+        Me.NumCounter.Size = New System.Drawing.Size(45, 20)
+        Me.NumCounter.TabIndex = 94
+        '
         'Manager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(513, 451)
+        Me.Controls.Add(Me.NumCounter)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.tbDumpFNameSuffix)
         Me.Controls.Add(Me.TbScrCor)
@@ -185,7 +208,8 @@ Partial Class Manager
         Me.Controls.Add(Me.btnSetPath)
         Me.MaximizeBox = False
         Me.Name = "Manager"
-        Me.Text = "SE-FIT Manager"
+        Me.Text = "SE-FIT Multi-Session Manager"
+        CType(Me.NumCounter, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -204,4 +228,6 @@ Partial Class Manager
     Friend WithEvents TbScrCor As TextBox
     Friend WithEvents tbDumpFNameSuffix As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents NumCounter As NumericUpDown
 End Class

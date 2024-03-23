@@ -42,6 +42,7 @@ Public Class Manager
                     cores += 1
                 End While
                 Me.Text = "SE-FIT Launcher detects " + cores.ToString + " cores."
+                NumCounter.Maximum = cores - 1
                 Label2.Text = "(0 - " + (cores - 1).ToString + ")"
                 'NumericUpDown1.Maximum = cores - 1
             End If
@@ -94,7 +95,11 @@ Public Class Manager
         If (result = Windows.Forms.DialogResult.OK) Then
             tbPath.Text = FolderBrowserDialog1.SelectedPath
         End If
+        get_files()
 
+    End Sub
+
+    Private Sub get_files()
         fileList = My.Computer.FileSystem.GetFiles(
                     tbPath.Text,
                     FileIO.SearchOption.SearchTopLevelOnly, "*.dmp")
@@ -105,6 +110,7 @@ Public Class Manager
         End If
 
     End Sub
+
 
     'Private Sub BtnLaunch_Click(sender As Object, e As EventArgs) Handles BtnLaunch.Click
     '    For Each foundFile As String In orderedFilesByCreationTime 'fileList
@@ -120,10 +126,10 @@ Public Class Manager
 
     Async Sub BtnLaunch_Click(sender As Object, e As EventArgs) Handles BtnLaunch.Click
         '        For i = 1 To cores - 1 Step 2
-
-        For i = 1 To 5 Step 2
+        Dim i As Integer
+        For i = 1 To NumCounter.Value Step 1
             RunSEFITSession(i)
-            Await Task.Delay(5000)
+            Await Task.Delay(4000)
         Next
         Form1_Activated(sender, e)
 
@@ -227,6 +233,10 @@ Public Class Manager
         Dim dataFileName As String
         Dim DMPfile As String
         Dim prefix As String = Now().ToString("yyyyMMdd_HHmmss") + "_"
+        Dim commandBlocks As New List(Of String)()
+        Dim currentBlock As New Text.StringBuilder()
+
+        Dim dbHelper As New DatabaseHelper()
 
         Dim filenameAppenndix As String = "_new"
         filenameAppenndix = tbDumpFNameSuffix.Text
@@ -240,26 +250,47 @@ Public Class Manager
             sw.WriteLine(tbPath.Text + "\" + prefix + "batch_script.ses")
         End Using
 
+        get_files()
+
+        dbHelper.ClearDatabaseData()
+
         Using sw As StreamWriter = New StreamWriter(tbPath.Text + "\" + prefix + "batch_script.ses")
 
             For Each foundFile As String In orderedFilesByCreationTime 'fileList
                 dataFileName = foundFile.Substring(foundFile.LastIndexOf("\") + 1)
-                sw.WriteLine("chdir " + """" + tbPath.Text.Replace("\", "/") + """" + vbNewLine)
-                sw.WriteLine("quietload on " + vbNewLine)
-                sw.WriteLine("load " + """" + dataFileName + """" + vbNewLine)
-                sw.WriteLine("quietload off " + vbNewLine)
-                sw.WriteLine("if is_defined(" + """" + "get_all_update" + """" + ") == 0 then {read " + """" + fwdpath + "lib/get_all_update.ses" + """" + "}" + vbNewLine)
-                sw.WriteLine("get_all_update" + vbNewLine)
+                sw.WriteLine("chdir " + """" + tbPath.Text.Replace("\", "/") + """")
+                sw.WriteLine("quietload on ")
+                sw.WriteLine("load " + """" + dataFileName + """")
+                sw.WriteLine("quietload off ")
+                sw.WriteLine("if is_defined(" + """" + "get_all_update" + """" + ") == 0 then {read " + """" + fwdpath + "lib/get_all_update.ses" + """" + "}")
+                'sw.WriteLine("get_all_update") 'this one causes trouble to the scripts with iterations
+                sw.WriteLine("get_stats")
+                currentBlock.AppendLine("chdir " + """" + tbPath.Text.Replace("\", "/") + """" + ",")
+                currentBlock.AppendLine("quietload on, ")
+                currentBlock.AppendLine("load " + """" + dataFileName + """" + ",")
+                currentBlock.AppendLine("quietload off, ")
+                currentBlock.AppendLine("if is_defined(" + """" + "get_all_update" + """" + ") == 0 then {read " + """" + fwdpath + "lib/get_all_update.ses" + """" + "},")
+                currentBlock.AppendLine("get_stats,")
+
                 For i = 0 To TbScrCor.Lines.Length - 1
                     If TbScrCor.Lines(i).Length > 0 Then
-                        sw.WriteLine(TbScrCor.Lines(i) + vbNewLine)
+                        sw.WriteLine(TbScrCor.Lines(i) + ",")
+                        currentBlock.AppendLine(TbScrCor.Lines(i) + ",")
                     End If
                 Next
                 DMPfile = dataFileName.Substring(0, dataFileName.LastIndexOf("."c))
                 DMPfile = DMPfile + filenameAppenndix + ".dmp"
                 sw.WriteLine("dump " + """" + DMPfile + """" + vbNewLine)
+                currentBlock.AppendLine("dump " + """" + DMPfile + """" + ",")
+                currentBlock.AppendLine("printf " + """" + "current_block_of_batch_script_2_complete\n" + """")
+                commandBlocks.Add(currentBlock.ToString())
+                currentBlock.Clear()
             Next
         End Using
+
+        For Each block As String In commandBlocks
+            dbHelper.AddCommandBlock(block)
+        Next
 
     End Sub
 End Class
