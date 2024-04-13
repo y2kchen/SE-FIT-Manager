@@ -5,6 +5,34 @@ Imports System.ComponentModel
 Imports System.IO
 Imports System.Reflection.Emit
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+'how do I chat with you?
+'I am not sure what you mean by chat with me. You can ask questions here and I will try to answer them.
+'if I have a code written in C, can you help me to convert it to VB?
+'Yes, I can help you with that. Just paste the code here and I will try to convert it to VB.
+'you are very powerful!
+'Thank you! I am just a computer program, so I am not powerful. I am here to help you with your programming questions.
+'I have SE-FIT written in VB as a front end and Surface evolver written in C as a back end. Surface Evolver was written 30 years ago
+'For the future, I would recommend that you consider updating Surface Evolver to a more modern language, such as C# or Python. This will make it easier to maintain and extend the software in the future.
+'what about SE-FIT?
+'SE-FIT is written in VB. You could consider updating it to a more modern language as well, such as C# or Python. This would make it easier to maintain and extend the software in the future.
+'C# or python, which one is better?
+'Both C# and Python are popular programming languages with their own strengths and weaknesses. C# is commonly used for Windows applications and games, while Python is known for its simplicity and readability. It depends on your specific needs and preferences.
+'I want to put the two together with a GUI, what do you suggest?
+'For a GUI application that combines SE-FIT and Surface Evolver, you could consider using C# with the Windows Presentation Foundation (WPF) framework. This would allow you to create a modern, user-friendly interface for your software.
+'what about C++?
+'C++ is a powerful programming language that is commonly used for system programming and high-performance applications. It is more complex than C# or Python, but offers greater control over hardware and memory management. If you are comfortable with C++, it could be a good choice for your project.
+'Surface evolver is for scientific computing, which one is better for scientific computing?
+'For scientific computing, Python is a popular choice due to its extensive libraries and tools for data analysis, visualization, and machine learning. C++ is also commonly used for scientific computing, especially for high-performance applications that require low-level control over hardware.
+'what do you mean by low-level control over hardward?
+'Low-level control over hardware refers to the ability to directly access and manipulate hardware components, such as memory, processors, and peripherals. C++ allows developers to write code that interacts with hardware at a very detailed level, which can be useful for performance-critical applications.
+'do you know flow 3D?
+'Yes, FLOW-3D is a computational fluid dynamics (CFD) software package used for simulating fluid flow and heat transfer in industrial and scientific applications. It is commonly used in the aerospace, automotive, and manufacturing industries to model complex fluid dynamics problems.
+'what is Flow-3D written in?
+'FLOW-3D is written in C++ and Fortran, with a graphical user interface (GUI) implemented in Java. The core computational algorithms are written in C++ for performance and efficiency, while the GUI is written in Java for cross-platform compatibility.
+'why not write the GUI in C++?
+'Java was chosen for the GUI of FLOW-3D because of its cross-platform compatibility and ease of use for developing graphical user interfaces. Java applications can run on any platform that supports the Java Virtual Machine (JVM), making it a good choice for software that needs to be deployed on multiple operating systems.
+'C++ can be cross-plateform too, right?
+'Yes, C++ can be used to develop cross-platform applications, but it requires more effort and platform-specific code to achieve the same level of compatibility as Java. Java's "write once, run anywhere" philosophy makes it easier to create GUI applications that work on multiple operating systems without modification.
 
 Public Class Manager
     Dim cores As Integer = 0
@@ -228,7 +256,12 @@ Public Class Manager
         End Try
 
     End Sub
-
+    'can you su,,arize the code for me?
+    'The code is a Windows Forms application that launches multiple instances of a program called SE-FIT.exe with different processor affinities.
+    'The user can select the number of instances to launch and the processor cores to use. The code uses the Process class to start SE-FIT.exe
+    'with the specified affinity and core settings. The application also displays information about the running SE-FIT processes and allows
+    'the user to select the path to the SE-FIT executable. The code is written in Visual Basic .NET and uses asynchronous programming to
+    'launch multiple instances of SE-FIT concurrently.
     Private Sub BtnGenScr_Click(sender As Object, e As EventArgs) Handles BtnGenScr.Click
         Dim dataFileName As String
         Dim DMPfile As String
@@ -271,6 +304,7 @@ Public Class Manager
                 currentBlock.AppendLine("quietload off, ")
                 currentBlock.AppendLine("if is_defined(" + """" + "get_all_update" + """" + ") == 0 then {read " + """" + fwdpath + "lib/get_all_update.ses" + """" + "},")
                 currentBlock.AppendLine("get_stats,")
+                'there is a reason for using ',' instead of ';' at the end of each line. 
 
                 For i = 0 To TbScrCor.Lines.Length - 1
                     If TbScrCor.Lines(i).Length > 0 Then
