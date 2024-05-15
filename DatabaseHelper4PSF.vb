@@ -1,43 +1,11 @@
 ﻿Imports System.Data.SQLite
 Imports System.IO
 Imports System.Reflection
-
-Public Class DatabaseHelper
-    'how can I add another database?
-    'You can add another database by creating a new instance of the DatabaseHelper class with a different connection string.
-    'can you help me with that?
-    'Sure! Here's an example of how you can create a new instance of the DatabaseHelper class with a different connection string:
-    'Dim dbPath2 As String = Path.Combine(assemblyPath, "communication\database\AnotherDatabase.db")
-    'Dim connectionString2 As String = $"Data Source={dbPath2}; Version=3;"
-    'Dim helper2 As New DatabaseHelper(connectionString2)
-    'This code creates a new instance of the DatabaseHelper class using a different connection string for a second database file.
-    'You can then use the helper2 object to interact with the second database independently of the first database.
-    'do I add those code in this file directly?
-    'Yes, you can add the code to create a new instance of the DatabaseHelper class with a different connection string directly in the same file.
-    'Alternatively, you can create a new file for the second database and include the DatabaseHelper class code there.
-    'This approach keeps the code organized and separates the logic for each database into its own file.
-    'where do I create the new file?
-    'You can create a new file in the same project directory as the existing DatabaseHelper.vb file.
-    'Right-click on the project in Visual Studio, select Add -> New Item, and choose the Class template.
-    'Name the new file appropriately, such as DatabaseHelper2.vb, and add the code for the second database there.
-    'You can then include the new file in your project and use the DatabaseHelper2 class to interact with the second database.
-    'in the new file, the class name should be the same as the existing file?
-    'Yes, the class name should be the same in the new file, such as DatabaseHelper, to maintain consistency with the existing class.
-
+Public Class DatabaseHelper4PSF
     Dim assemblyPath As String = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
-    Dim dbPath As String = Path.Combine(assemblyPath, "communication\database\BatchRun.db")
-    Dim connectionString As String = $"Data Source={dbPath}; Version=3;"
-
-    'Dim dbPath4PSF As String = Path.Combine(assemblyPath, "communication\database\PSFRun.db")
-    'Dim connectionString4PSF As String = $"Data Source={dbPath4PSF}; Version=3;"
+    Dim dbPath4PSF As String = Path.Combine(assemblyPath, "communication\database\PSFRun.db")
+    Dim connectionString4PSF As String = $"Data Source={dbPath4PSF}; Version=3;"
     'Dim helper2 As New DatabaseHelper(connectionString2)
-
-
-    'Private ReadOnly Property ConnectionString As String
-    '    Get
-    '        Return "Data Source=\bin\communication\database\BatchRun.db; Version=3;"
-    '    End Get
-    'End Property
 
     Public Sub New()
         ' Optionally, create the database table when the helper is initialized
@@ -45,21 +13,29 @@ Public Class DatabaseHelper
     End Sub
 
     Public Sub CreateTable()
-        Dim createTableSql As String = "CREATE TABLE IF NOT EXISTS CommandBlocks (Id INTEGER PRIMARY KEY AUTOINCREMENT, Commands TEXT NOT NULL, Processed BOOLEAN NOT NULL DEFAULT 0);"
-        Using conn As New SQLiteConnection(ConnectionString)
+        Dim createTableSql As String = "CREATE TABLE IF NOT EXISTS CommandBlocks (Id INTEGER PRIMARY KEY AUTOINCREMENT, FileName TEXT NOT NULL, ParName1 TEXT NOT NULL, ParValue1 TEXT NOT NULL, ParName2 TEXT NOT NULL, ParValue2 TEXT NOT NULL, Processed BOOLEAN NOT NULL DEFAULT 0);"
+        Using conn As New SQLiteConnection(connectionString4PSF)
             conn.Open()
             Using cmd As New SQLiteCommand(createTableSql, conn)
                 cmd.ExecuteNonQuery()
             End Using
         End Using
     End Sub
-
-    Public Sub AddCommandBlock(commandBlock As String)
-        Dim insertSql As String = "INSERT INTO CommandBlocks (Commands, Processed) VALUES (@Commands, 0)"
-        Using conn As New SQLiteConnection(ConnectionString)
+    Public Sub AddCommandBlock(FileNameText As String, ParName1Text As String, ParValue1Text As String, ParName2Text As String, ParValue2Text As String)
+        Dim insertSql As String = "INSERT INTO CommandBlocks (FileName, ParName1, ParValue1, ParName2, ParValue2, Processed) VALUES (@FileName, @ParName1, @ParValue1, @ParName2, @ParValue2, 0)"
+        Using conn As New SQLiteConnection(connectionString4PSF)
             conn.Open()
             Using cmd As New SQLiteCommand(insertSql, conn)
-                cmd.Parameters.AddWithValue("@Commands", commandBlock)
+                'now I have ParName and ParRange, what should I do with them?
+                'You can set the values of the ParName and ParRange parameters before executing the query.
+                'For example, you can use cmd.Parameters.AddWithValue to set the parameter values based on the input data.
+                'Here's an example of how you can set the parameter values for ParName and ParRange:
+                cmd.Parameters.AddWithValue("@FileName", FileNameText)
+                cmd.Parameters.AddWithValue("@ParName1", ParName1Text)
+                cmd.Parameters.AddWithValue("@ParValue1", ParValue1Text)
+                cmd.Parameters.AddWithValue("@ParName2", ParName2Text)
+                cmd.Parameters.AddWithValue("@ParValue2", ParValue2Text)
+                'cmd.Parameters.AddWithValue("@Commands", commandBlock)
                 cmd.ExecuteNonQuery()
             End Using
         End Using
@@ -68,7 +44,7 @@ Public Class DatabaseHelper
     'you can execute DELETE statements for each table.
     'This approach allows you to start fresh with empty tables without changing the database schema.
     Public Sub ClearDatabaseData() '(connectionString As String)
-        Using conn As New SQLiteConnection(connectionString)
+        Using conn As New SQLiteConnection(connectionString4PSF)
             conn.Open()
 
             ' List all tables you want to clear
@@ -129,5 +105,23 @@ Public Class DatabaseHelper
     End Sub
 
     ' Additional methods for updating, deleting, and querying data can be added here
+    'How to update a record in the database?
+    'To update a record in the database, you can use an UPDATE statement with the SET clause to modify the values of specific columns.
+    'Here's an example of how you can update a record in the CommandBlocks table based on the Id:
+    Public Sub UpdateCommandBlock(id As Integer, FileNameText As String, ParName1Text As String, ParValue1Text As String, ParName2Text As String, ParValue2Text As String)
+        Dim updateSql As String = "UPDATE CommandBlocks SET FileName = @FileName, ParName1 = @ParName1, ParValue1 = @ParValue1, ParName2 = @ParName2, ParValue2 = @ParValue2 WHERE Id = @Id"
+        Using conn As New SQLiteConnection(connectionString4PSF)
+            conn.Open()
+            Using cmd As New SQLiteCommand(updateSql, conn)
+                cmd.Parameters.AddWithValue("@FileName", FileNameText)
+                cmd.Parameters.AddWithValue("@ParName1", ParName1Text)
+                cmd.Parameters.AddWithValue("@ParValue1", ParValue1Text)
+                cmd.Parameters.AddWithValue("@ParName2", ParName2Text)
+                cmd.Parameters.AddWithValue("@ParValue2", ParValue2Text)
+                cmd.Parameters.AddWithValue("@Id", id)
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
 
 End Class

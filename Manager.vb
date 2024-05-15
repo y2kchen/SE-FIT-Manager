@@ -327,4 +327,114 @@ Public Class Manager
         Next
 
     End Sub
+
+    Private Sub PSFScopeSetUp_Click(sender As Object, e As EventArgs) Handles PSFScopeSetUp.Click
+        'Dim dataFileName As String
+        'Dim DMPfile As String
+        Dim prefix As String = Now().ToString("yyyyMMdd_HHmmss") + "_"
+        Dim FileNameText As String
+        Dim LineElements As String()
+        Dim ParName1Text As String
+        Dim ParValue1 As String
+        Dim ParValue1Count As Integer
+        Dim ParValue1Text(1) As String
+        Dim ParName2Text As String
+        Dim ParValue2 As String
+        Dim ParValue2Count As Integer
+        Dim ParValue2Text(1) As String
+        'TBParName1 will take the input in the form of a set of numbers separated by comas, I ant to take one number a time and assign it to ParValue1Text
+        'can you help with that?
+
+
+        Dim commandBlocks As New List(Of String)()
+        Dim currentBlock As New Text.StringBuilder()
+
+        Dim dbHelper As New DatabaseHelper4PSF()
+
+        Dim filenameAppenndix As String = "_new"
+        filenameAppenndix = tbDumpFNameSuffix.Text
+
+        FileNameText = TBFEPath.Text
+        dbHelper.ClearDatabaseData()
+        ParName1Text = TBParName1.Text
+        ParValue1 = TBParValue1.Text
+
+        If ParValue1.Contains(";") Then
+            ParValue1 = ParValue1.Replace(" ", "")
+            ParValue1 = ParValue1.Replace(";", " ")
+            LineElements = ParValue1.Split
+            ParValue1Count = LineElements.Length
+            ReDim ParValue1Text(ParValue1Count)
+            For j = 0 To ParValue1Count - 1
+                ParValue1Text(j) = LineElements(j)
+            Next
+        Else
+            LineElements = ParValue1.Split
+            If LineElements.Length <> 3 Then
+                MessageBox.Show("Error processing line", "Parameter Sweep")
+                Exit Sub
+            End If
+            Dim iterator As Double = CDbl(LineElements(0))
+            'During the debug, I could see that ParValue1Text(0) is "0" which is not null, but on line 423, it's null, why is that?
+            'any thought?
+
+            ParValue1Text(0) = LineElements(0)
+            'do I need to convert it to string?
+            ParValue1Count = 1
+            iterator += CDbl(LineElements(1))
+            If CDbl(LineElements(1)) > 0 Then
+                While iterator <= CDbl(LineElements(2)) + CDbl(LineElements(1)) / 100.0
+                    ReDim Preserve ParValue1Text(ParValue1Count + 1)
+                    ParValue1Text(ParValue1Count) = iterator.ToString
+                    iterator += CDbl(LineElements(1))
+                    ParValue1Count += 1
+                End While
+            End If
+            If CDbl(LineElements(1)) < 0 Then
+                While iterator >= CDbl(LineElements(2)) + CDbl(LineElements(1)) / 100.0
+                    ReDim Preserve ParValue1Text(ParValue1Count + 1)
+                    ParValue1Text(ParValue1Count) = iterator
+                    iterator += CDbl(LineElements(1))
+                    ParValue1Count += 1
+                End While
+            End If
+        End If
+
+        ParName2Text = TBParName2.Text
+        ParValue2 = TBParValue2.Text
+
+        ParValue2 = ParValue2.Replace(" ", "")
+        ParValue2 = ParValue2.Replace(";", " ")
+        LineElements = ParValue2.Split
+        ParValue2Count = LineElements.Length
+        ReDim ParValue2Text(ParValue2Count)
+        For j = 0 To ParValue2Count - 1
+            ParValue2Text(j) = LineElements(j)
+        Next
+
+        If ParValue1Count <> ParValue2Count Then
+            MessageBox.Show("The numbers of the parameter values don't match", "Parameter Sweep")
+            Exit Sub
+        End If
+        'ParValue1Text(0) is not null, however it is null on line 423, why is that?
+        'any thought?
+        'are you there?
+        'I am here. It's hard to say without seeing the specific code, but it's possible that the array is being accessed out of bounds or the values are being overwritten somewhere in the code. I would recommend checking the code carefully to ensure that the array is being populated correctly and that the values are not being modified unexpectedly.
+        For i = 0 To ParValue1Count - 1
+            dbHelper.AddCommandBlock(FileNameText, ParName1Text, ParValue1Text(i), ParName2Text, ParValue2Text(i))
+        Next
+
+    End Sub
+
+    Private Sub BtnFEPath_Click(sender As Object, e As EventArgs) Handles BtnFEPath.Click
+        'FolderBrowserDialog1.SelectedPath = tbPath.Text
+        Dim result As DialogResult = OpenFileDialog1.ShowDialog()
+
+        If (result = Windows.Forms.DialogResult.OK) Then
+            TBFEPath.Text = OpenFileDialog1.FileName
+        End If
+
+    End Sub
+
+
 End Class
