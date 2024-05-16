@@ -13,7 +13,7 @@ Public Class DatabaseHelper4PSF
     End Sub
 
     Public Sub CreateTable()
-        Dim createTableSql As String = "CREATE TABLE IF NOT EXISTS CommandBlocks (Id INTEGER PRIMARY KEY AUTOINCREMENT, FileName TEXT NOT NULL, ParName1 TEXT NOT NULL, ParValue1 TEXT NOT NULL, ParName2 TEXT NOT NULL, ParValue2 TEXT NOT NULL, Processed BOOLEAN NOT NULL DEFAULT 0);"
+        Dim createTableSql As String = "CREATE TABLE IF NOT EXISTS CommandBlocks (Id INTEGER PRIMARY KEY AUTOINCREMENT, Commands TEXT NOT NULL, Processed BOOLEAN NOT NULL DEFAULT 0);"
         Using conn As New SQLiteConnection(connectionString4PSF)
             conn.Open()
             Using cmd As New SQLiteCommand(createTableSql, conn)
@@ -21,21 +21,17 @@ Public Class DatabaseHelper4PSF
             End Using
         End Using
     End Sub
-    Public Sub AddCommandBlock(FileNameText As String, ParName1Text As String, ParValue1Text As String, ParName2Text As String, ParValue2Text As String)
-        Dim insertSql As String = "INSERT INTO CommandBlocks (FileName, ParName1, ParValue1, ParName2, ParValue2, Processed) VALUES (@FileName, @ParName1, @ParValue1, @ParName2, @ParValue2, 0)"
+    Public Sub AddCommandBlock(commandBlock As String)
+        Dim insertSql As String = "INSERT INTO CommandBlocks (Commands, Processed) VALUES (@Commands,  0)"
         Using conn As New SQLiteConnection(connectionString4PSF)
             conn.Open()
             Using cmd As New SQLiteCommand(insertSql, conn)
-                'now I have ParName and ParRange, what should I do with them?
-                'You can set the values of the ParName and ParRange parameters before executing the query.
-                'For example, you can use cmd.Parameters.AddWithValue to set the parameter values based on the input data.
-                'Here's an example of how you can set the parameter values for ParName and ParRange:
-                cmd.Parameters.AddWithValue("@FileName", FileNameText)
-                cmd.Parameters.AddWithValue("@ParName1", ParName1Text)
-                cmd.Parameters.AddWithValue("@ParValue1", ParValue1Text)
-                cmd.Parameters.AddWithValue("@ParName2", ParName2Text)
-                cmd.Parameters.AddWithValue("@ParValue2", ParValue2Text)
-                'cmd.Parameters.AddWithValue("@Commands", commandBlock)
+                'cmd.Parameters.AddWithValue("@FileName", FileNameText)
+                'cmd.Parameters.AddWithValue("@ParName1", ParName1Text)
+                'cmd.Parameters.AddWithValue("@ParValue1", ParValue1Text)
+                'cmd.Parameters.AddWithValue("@ParName2", ParName2Text)
+                'cmd.Parameters.AddWithValue("@ParValue2", ParValue2Text)
+                cmd.Parameters.AddWithValue("@Commands", commandBlock)
                 cmd.ExecuteNonQuery()
             End Using
         End Using

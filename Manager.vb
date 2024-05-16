@@ -5,6 +5,7 @@ Imports System.ComponentModel
 Imports System.IO
 Imports System.Reflection.Emit
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports System.Data.Entity
 'how do I chat with you?
 'I am not sure what you mean by chat with me. You can ask questions here and I will try to answer them.
 'if I have a code written in C, can you help me to convert it to VB?
@@ -228,10 +229,37 @@ Public Class Manager
         Try
             Dim gSEProcess As New Process()
             With gSEProcess.StartInfo
+                'why do you use cmd.exe?
+                'The code uses cmd.exe to start the SE-FIT process with a specific processor affinity setting.
+                'This allows the code to control the processor cores used by the SE-FIT process.
+                'where is cmd.exe located?
+                'cmd.exe is located in the Windows\System32 directory on most Windows systems.
+                'The code uses the full path to cmd.exe to ensure that it can be found and executed correctly.
+                'why do you use /C?
+                '/C is a command-line option for cmd.exe that tells it to run the specified command and then terminate.
+                'This allows the code to start SE-FIT with the specified affinity setting and then exit the command prompt.
+                'what is START?
+                'START is a command-line option for cmd.exe that tells it to start a new command prompt window and run the specified command in that window.
+                'This allows the code to launch SE-FIT in a separate window with the specified affinity setting.
+                'what is /high?
+                '/high is a command-line option for START that tells it to run the specified command with high priority.
+                'This can improve the performance of SE-FIT by giving it more CPU time and resources.
+                'can I add more options?
+                'Yes, you can add more options to the command line to customize the behavior of the SE-FIT process.
+                'how about an option to start frmParIncRun in SE-FIT, grab the data from a database, and then start the simulation?
+                'Yes, you can modify the command line to start frmParIncRun in SE-FIT, read data from a database, and then start the simulation.
+                'You would need to pass the appropriate command-line arguments to SE-FIT to achieve this behavior.
+                'can you show me how to do that?
+                'Sure! Here is an example of how you could modify the command line to start frmParIncRun in SE-FIT and read data from a database:
+                'In this example, SE-FIT.exe is started with the /frmParIncRun option to launch the frmParIncRun form, and the /database=mydatabase.db option to specify the database to read data from.
+                'how do I add /frmParIncRun /database=mydatabase.db to SE-FIT?
+                'To add the /frmParIncRun /database=mydatabase.db options to SE-FIT, you would need to modify the SE-FIT code to handle these command-line arguments.
+
                 .FileName = "cmd.exe"
                 '.FileName = "C:\Windows\System32\cmd.exe"
                 '.Arguments = "/C START /high /affinity " + a + " SE-FIT.exe"
-                .Arguments = "/C START /affinity " + a + " " + executable
+                '.Arguments = "/C START /high /affinity " + a + " SE-FIT.exe /frmParIncRun /database=mydatabase.db"
+                .Arguments = "/C START /affinity " + a + " " + executable + " /frmParIncRun "
                 .UseShellExecute = False
                 .CreateNoWindow = True
                 '.RedirectStandardOutput = True
@@ -345,7 +373,6 @@ Public Class Manager
         'TBParName1 will take the input in the form of a set of numbers separated by comas, I ant to take one number a time and assign it to ParValue1Text
         'can you help with that?
 
-
         Dim commandBlocks As New List(Of String)()
         Dim currentBlock As New Text.StringBuilder()
 
@@ -421,9 +448,19 @@ Public Class Manager
         'are you there?
         'I am here. It's hard to say without seeing the specific code, but it's possible that the array is being accessed out of bounds or the values are being overwritten somewhere in the code. I would recommend checking the code carefully to ensure that the array is being populated correctly and that the values are not being modified unexpectedly.
         For i = 0 To ParValue1Count - 1
-            dbHelper.AddCommandBlock(FileNameText, ParName1Text, ParValue1Text(i), ParName2Text, ParValue2Text(i))
+            currentBlock.AppendLine(FileNameText + ",")
+            currentBlock.AppendLine(ParName1Text + ",")
+            currentBlock.AppendLine(ParValue1Text(i) + ",")
+            currentBlock.AppendLine(ParName2Text + ",")
+            currentBlock.AppendLine(ParValue2Text(i))
+            dbHelper.AddCommandBlock(currentBlock.ToString())
+            'commandBlocks.Add(currentBlock.ToString())
+            currentBlock.Clear()
         Next
 
+        'For Each block As String In commandBlocks
+        '    dbHelper.AddCommandBlock(block)
+        'Next
     End Sub
 
     Private Sub BtnFEPath_Click(sender As Object, e As EventArgs) Handles BtnFEPath.Click
@@ -433,8 +470,6 @@ Public Class Manager
         If (result = Windows.Forms.DialogResult.OK) Then
             TBFEPath.Text = OpenFileDialog1.FileName
         End If
-
     End Sub
-
 
 End Class
