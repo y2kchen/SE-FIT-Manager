@@ -370,6 +370,8 @@ Public Class Manager
         Dim ParValue2 As String
         Dim ParValue2Count As Integer
         Dim ParValue2Text(1) As String
+        Dim ParName3Text As String
+
         'TBParName1 will take the input in the form of a set of numbers separated by comas, I ant to take one number a time and assign it to ParValue1Text
         'can you help with that?
 
@@ -443,6 +445,9 @@ Public Class Manager
             MessageBox.Show("The numbers of the parameter values don't match", "Parameter Sweep")
             Exit Sub
         End If
+
+        ParName3Text = TBParName3.Text
+
         'ParValue1Text(0) is not null, however it is null on line 423, why is that?
         'any thought?
         'are you there?
@@ -452,15 +457,12 @@ Public Class Manager
             currentBlock.AppendLine(ParName1Text + ",")
             currentBlock.AppendLine(ParValue1Text(i) + ",")
             currentBlock.AppendLine(ParName2Text + ",")
-            currentBlock.AppendLine(ParValue2Text(i))
+            currentBlock.AppendLine(ParValue2Text(i) + ",")
+            currentBlock.AppendLine(ParName3Text)
             dbHelper.AddCommandBlock(currentBlock.ToString())
-            'commandBlocks.Add(currentBlock.ToString())
             currentBlock.Clear()
         Next
 
-        'For Each block As String In commandBlocks
-        '    dbHelper.AddCommandBlock(block)
-        'Next
     End Sub
 
     Private Sub BtnFEPath_Click(sender As Object, e As EventArgs) Handles BtnFEPath.Click

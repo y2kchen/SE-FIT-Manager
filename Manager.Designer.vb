@@ -277,7 +277,6 @@ Partial Class Manager
         Me.TBParName3.Name = "TBParName3"
         Me.TBParName3.Size = New System.Drawing.Size(88, 20)
         Me.TBParName3.TabIndex = 102
-        Me.TBParName3.Visible = False
         '
         'TBParRange4
         '
