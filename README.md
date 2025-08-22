@@ -1,0 +1,1 @@
+This program allows setting up a batch processing tasks database. Users can run multiple sessions of SE-FIT and use 'Execute Batch Script 2' on the Batch Processing window to access the database and complete the tasks until all the tasks are completed.
