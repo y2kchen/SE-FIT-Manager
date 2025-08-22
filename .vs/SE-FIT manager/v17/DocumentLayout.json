@@ -3,12 +3,15 @@
   "WorkspaceRootPath": "C:\\SE-FIT-Manager\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AB675B0B-951F-4867-8FFC-B0A733CA2D87}|SE-FIT manager.vbproj|C:\\SE-FIT-Manager\\manager.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{AB675B0B-951F-4867-8FFC-B0A733CA2D87}|SE-FIT manager.vbproj|solutionrelative:manager.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AB675B0B-951F-4867-8FFC-B0A733CA2D87}|SE-FIT manager.vbproj|c:\\se-fit-manager\\manager.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{AB675B0B-951F-4867-8FFC-B0A733CA2D87}|SE-FIT manager.vbproj|solutionrelative:manager.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB675B0B-951F-4867-8FFC-B0A733CA2D87}|SE-FIT manager.vbproj|C:\\SE-FIT-Manager\\manager.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{AB675B0B-951F-4867-8FFC-B0A733CA2D87}|SE-FIT manager.vbproj|solutionrelative:manager.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|SE-FIT manager||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB675B0B-951F-4867-8FFC-B0A733CA2D87}|SE-FIT manager.vbproj|C:\\SE-FIT-Manager\\databasehelper.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
@@ -17,6 +20,9 @@
     {
       "AbsoluteMoniker": "D:0:0:{AB675B0B-951F-4867-8FFC-B0A733CA2D87}|SE-FIT manager.vbproj|C:\\SE-FIT-Manager\\databasehelper4psf.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{AB675B0B-951F-4867-8FFC-B0A733CA2D87}|SE-FIT manager.vbproj|solutionrelative:databasehelper4psf.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB675B0B-951F-4867-8FFC-B0A733CA2D87}|SE-FIT manager.vbproj|c:\\se-fit-manager\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|eda661ea-dc61-4750-b3a5-f6e9c74060f5"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +32,27 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "SE-FIT manager",
+              "DocumentMoniker": "C:\\SE-FIT-Manager\\SE-FIT manager.vbproj",
+              "RelativeDocumentMoniker": "SE-FIT manager.vbproj",
+              "ToolTip": "C:\\SE-FIT-Manager\\SE-FIT manager.vbproj",
+              "RelativeToolTip": "SE-FIT manager.vbproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-08-22T18:13:18.507Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DatabaseHelper4PSF.vb",
               "DocumentMoniker": "C:\\SE-FIT-Manager\\DatabaseHelper4PSF.vb",
               "RelativeDocumentMoniker": "DatabaseHelper4PSF.vb",
@@ -38,12 +60,11 @@
               "RelativeToolTip": "DatabaseHelper4PSF.vb",
               "ViewState": "AQIAAAIAAAAAAAAAAAAcwCIAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-05-13T19:16:58.33Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T19:16:58.33Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DatabaseHelper.vb",
               "DocumentMoniker": "C:\\SE-FIT-Manager\\DatabaseHelper.vb",
               "RelativeDocumentMoniker": "DatabaseHelper.vb",
@@ -55,20 +76,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Manager.vb",
               "DocumentMoniker": "C:\\SE-FIT-Manager\\Manager.vb",
               "RelativeDocumentMoniker": "Manager.vb",
               "ToolTip": "C:\\SE-FIT-Manager\\Manager.vb",
               "RelativeToolTip": "Manager.vb",
-              "ViewState": "AQIAALoBAAAAAAAAAAAgwNABAAAAAAAA",
+              "ViewState": "AgIAALYBAAAAAAAAAAAIwNABAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2024-03-04T20:50:13.913Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Manager.vb [Design]",
               "DocumentMoniker": "C:\\SE-FIT-Manager\\Manager.vb",
               "RelativeDocumentMoniker": "Manager.vb",

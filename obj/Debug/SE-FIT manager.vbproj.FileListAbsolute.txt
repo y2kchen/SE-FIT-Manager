@@ -18,5 +18,5 @@ C:\SE-FIT-Manager\obj\Debug\SE-FIT manager.vbproj.CoreCompileInputs.cache
 C:\SE-FIT-Manager\obj\Debug\SE-FIT manager.exe
 C:\SE-FIT-Manager\obj\Debug\SE-FIT manager.xml
 C:\SE-FIT-Manager\obj\Debug\SE-FIT manager.pdb
-C:\SE-FIT-Manager\obj\Debug\SE-FIT manager.vbproj.SuggestedBindingRedirects.cache
-C:\SE-FIT-Manager\obj\Debug\SE-FIT manager.vbproj.CopyComplete
+C:\SE-FIT-Manager\obj\Debug\SE-FIT m.589145B5.Up2Date
+C:\SE-FIT-Manager\obj\Debug\SE-FIT manager.exe.config

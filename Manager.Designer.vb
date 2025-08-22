@@ -59,9 +59,10 @@ Partial Class Manager
         Me.btnCurrent.BackColor = System.Drawing.Color.CornflowerBlue
         Me.btnCurrent.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCurrent.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnCurrent.Location = New System.Drawing.Point(383, 418)
+        Me.btnCurrent.Location = New System.Drawing.Point(985, 459)
+        Me.btnCurrent.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCurrent.Name = "btnCurrent"
-        Me.btnCurrent.Size = New System.Drawing.Size(90, 20)
+        Me.btnCurrent.Size = New System.Drawing.Size(120, 25)
         Me.btnCurrent.TabIndex = 77
         Me.btnCurrent.Text = "Current Path"
         Me.btnCurrent.UseVisualStyleBackColor = False
@@ -69,9 +70,10 @@ Partial Class Manager
         '
         'tbPath
         '
-        Me.tbPath.Location = New System.Drawing.Point(29, 277)
+        Me.tbPath.Location = New System.Drawing.Point(39, 341)
+        Me.tbPath.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbPath.Name = "tbPath"
-        Me.tbPath.Size = New System.Drawing.Size(433, 20)
+        Me.tbPath.Size = New System.Drawing.Size(576, 22)
         Me.tbPath.TabIndex = 76
         Me.tbPath.Text = "C:\Evolver\fe"
         Me.tbPath.WordWrap = False
@@ -81,9 +83,10 @@ Partial Class Manager
         Me.btnSetPath.BackColor = System.Drawing.Color.CornflowerBlue
         Me.btnSetPath.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSetPath.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnSetPath.Location = New System.Drawing.Point(29, 251)
+        Me.btnSetPath.Location = New System.Drawing.Point(39, 309)
+        Me.btnSetPath.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSetPath.Name = "btnSetPath"
-        Me.btnSetPath.Size = New System.Drawing.Size(90, 20)
+        Me.btnSetPath.Size = New System.Drawing.Size(120, 25)
         Me.btnSetPath.TabIndex = 75
         Me.btnSetPath.Text = "Browse"
         Me.btnSetPath.UseVisualStyleBackColor = False
@@ -91,9 +94,10 @@ Partial Class Manager
         'BtnLaunch
         '
         Me.BtnLaunch.BackColor = System.Drawing.Color.CornflowerBlue
-        Me.BtnLaunch.Location = New System.Drawing.Point(29, 12)
+        Me.BtnLaunch.Location = New System.Drawing.Point(39, 15)
+        Me.BtnLaunch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BtnLaunch.Name = "BtnLaunch"
-        Me.BtnLaunch.Size = New System.Drawing.Size(103, 23)
+        Me.BtnLaunch.Size = New System.Drawing.Size(137, 28)
         Me.BtnLaunch.TabIndex = 78
         Me.BtnLaunch.Text = "Launch SE-FIT"
         Me.BtnLaunch.UseVisualStyleBackColor = False
@@ -101,16 +105,18 @@ Partial Class Manager
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(138, 17)
+        Me.Label2.Location = New System.Drawing.Point(184, 21)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(0, 13)
+        Me.Label2.Size = New System.Drawing.Size(0, 16)
         Me.Label2.TabIndex = 79
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(29, 41)
+        Me.RichTextBox1.Location = New System.Drawing.Point(39, 50)
+        Me.RichTextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(433, 197)
+        Me.RichTextBox1.Size = New System.Drawing.Size(576, 242)
         Me.RichTextBox1.TabIndex = 80
         Me.RichTextBox1.Text = ""
         '
@@ -119,9 +125,10 @@ Partial Class Manager
         Me.RBTimeDescend.AutoSize = True
         Me.RBTimeDescend.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RBTimeDescend.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.RBTimeDescend.Location = New System.Drawing.Point(291, 254)
+        Me.RBTimeDescend.Location = New System.Drawing.Point(388, 313)
+        Me.RBTimeDescend.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.RBTimeDescend.Name = "RBTimeDescend"
-        Me.RBTimeDescend.Size = New System.Drawing.Size(123, 17)
+        Me.RBTimeDescend.Size = New System.Drawing.Size(154, 21)
         Me.RBTimeDescend.TabIndex = 86
         Me.RBTimeDescend.Text = "Time Descending"
         Me.RBTimeDescend.UseVisualStyleBackColor = True
@@ -132,9 +139,10 @@ Partial Class Manager
         Me.RBTimeAscend.Checked = True
         Me.RBTimeAscend.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RBTimeAscend.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.RBTimeAscend.Location = New System.Drawing.Point(170, 254)
+        Me.RBTimeAscend.Location = New System.Drawing.Point(227, 313)
+        Me.RBTimeAscend.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.RBTimeAscend.Name = "RBTimeAscend"
-        Me.RBTimeAscend.Size = New System.Drawing.Size(115, 17)
+        Me.RBTimeAscend.Size = New System.Drawing.Size(144, 21)
         Me.RBTimeAscend.TabIndex = 85
         Me.RBTimeAscend.TabStop = True
         Me.RBTimeAscend.Text = "Time Ascending"
@@ -145,9 +153,10 @@ Partial Class Manager
         Me.BtnGenScr.BackColor = System.Drawing.Color.CornflowerBlue
         Me.BtnGenScr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnGenScr.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnGenScr.Location = New System.Drawing.Point(29, 422)
+        Me.BtnGenScr.Location = New System.Drawing.Point(39, 519)
+        Me.BtnGenScr.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BtnGenScr.Name = "BtnGenScr"
-        Me.BtnGenScr.Size = New System.Drawing.Size(90, 20)
+        Me.BtnGenScr.Size = New System.Drawing.Size(120, 25)
         Me.BtnGenScr.TabIndex = 87
         Me.BtnGenScr.Text = "Generate Script"
         Me.BtnGenScr.UseVisualStyleBackColor = False
@@ -155,20 +164,22 @@ Partial Class Manager
         'TbScrCor
         '
         Me.TbScrCor.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TbScrCor.Location = New System.Drawing.Point(29, 326)
+        Me.TbScrCor.Location = New System.Drawing.Point(39, 401)
+        Me.TbScrCor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TbScrCor.Multiline = True
         Me.TbScrCor.Name = "TbScrCor"
         Me.TbScrCor.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TbScrCor.Size = New System.Drawing.Size(433, 90)
+        Me.TbScrCor.Size = New System.Drawing.Size(576, 110)
         Me.TbScrCor.TabIndex = 88
         Me.TbScrCor.Text = "{g 5; V; u}100" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.TbScrCor.WordWrap = False
         '
         'tbDumpFNameSuffix
         '
-        Me.tbDumpFNameSuffix.Location = New System.Drawing.Point(165, 301)
+        Me.tbDumpFNameSuffix.Location = New System.Drawing.Point(220, 370)
+        Me.tbDumpFNameSuffix.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.tbDumpFNameSuffix.Name = "tbDumpFNameSuffix"
-        Me.tbDumpFNameSuffix.Size = New System.Drawing.Size(88, 20)
+        Me.tbDumpFNameSuffix.Size = New System.Drawing.Size(116, 22)
         Me.tbDumpFNameSuffix.TabIndex = 90
         Me.tbDumpFNameSuffix.Text = "_n"
         '
@@ -177,9 +188,10 @@ Partial Class Manager
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.Label1.Location = New System.Drawing.Point(35, 304)
+        Me.Label1.Location = New System.Drawing.Point(47, 374)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(124, 13)
+        Me.Label1.Size = New System.Drawing.Size(158, 17)
         Me.Label1.TabIndex = 91
         Me.Label1.Text = "Dump filename suffix"
         '
@@ -188,43 +200,49 @@ Partial Class Manager
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.Label4.Location = New System.Drawing.Point(292, 19)
+        Me.Label4.Location = New System.Drawing.Point(389, 23)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(117, 13)
+        Me.Label4.Size = New System.Drawing.Size(151, 17)
         Me.Label4.TabIndex = 93
         Me.Label4.Text = "Number of sessions"
         '
         'NumCounter
         '
-        Me.NumCounter.Location = New System.Drawing.Point(415, 17)
+        Me.NumCounter.Location = New System.Drawing.Point(553, 21)
+        Me.NumCounter.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.NumCounter.Name = "NumCounter"
-        Me.NumCounter.Size = New System.Drawing.Size(45, 20)
+        Me.NumCounter.Size = New System.Drawing.Size(60, 22)
         Me.NumCounter.TabIndex = 94
         '
         'PSFScopeSetUp
         '
         Me.PSFScopeSetUp.BackColor = System.Drawing.Color.CornflowerBlue
+        Me.PSFScopeSetUp.Enabled = False
         Me.PSFScopeSetUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PSFScopeSetUp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.PSFScopeSetUp.Location = New System.Drawing.Point(739, 197)
+        Me.PSFScopeSetUp.Location = New System.Drawing.Point(985, 242)
+        Me.PSFScopeSetUp.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PSFScopeSetUp.Name = "PSFScopeSetUp"
-        Me.PSFScopeSetUp.Size = New System.Drawing.Size(90, 20)
+        Me.PSFScopeSetUp.Size = New System.Drawing.Size(120, 25)
         Me.PSFScopeSetUp.TabIndex = 95
         Me.PSFScopeSetUp.Text = "PSF Scope Setup"
         Me.PSFScopeSetUp.UseVisualStyleBackColor = False
         '
         'TBParName1
         '
-        Me.TBParName1.Location = New System.Drawing.Point(588, 84)
+        Me.TBParName1.Location = New System.Drawing.Point(784, 103)
+        Me.TBParName1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TBParName1.Name = "TBParName1"
-        Me.TBParName1.Size = New System.Drawing.Size(88, 20)
+        Me.TBParName1.Size = New System.Drawing.Size(116, 22)
         Me.TBParName1.TabIndex = 96
         '
         'TBParValue1
         '
-        Me.TBParValue1.Location = New System.Drawing.Point(700, 84)
+        Me.TBParValue1.Location = New System.Drawing.Point(933, 103)
+        Me.TBParValue1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TBParValue1.Name = "TBParValue1"
-        Me.TBParValue1.Size = New System.Drawing.Size(129, 20)
+        Me.TBParValue1.Size = New System.Drawing.Size(171, 22)
         Me.TBParValue1.TabIndex = 97
         '
         'Label3
@@ -232,9 +250,10 @@ Partial Class Manager
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.Label3.Location = New System.Drawing.Point(581, 68)
+        Me.Label3.Location = New System.Drawing.Point(775, 84)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(100, 13)
+        Me.Label3.Size = New System.Drawing.Size(129, 17)
         Me.Label3.TabIndex = 98
         Me.Label3.Text = "Parameter Name"
         '
@@ -243,62 +262,70 @@ Partial Class Manager
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.Label5.Location = New System.Drawing.Point(712, 68)
+        Me.Label5.Location = New System.Drawing.Point(949, 84)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(106, 13)
+        Me.Label5.Size = New System.Drawing.Size(137, 17)
         Me.Label5.TabIndex = 99
         Me.Label5.Text = "Parameter Values"
         '
         'TBParValue2
         '
-        Me.TBParValue2.Location = New System.Drawing.Point(700, 110)
+        Me.TBParValue2.Location = New System.Drawing.Point(933, 135)
+        Me.TBParValue2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TBParValue2.Name = "TBParValue2"
-        Me.TBParValue2.Size = New System.Drawing.Size(129, 20)
+        Me.TBParValue2.Size = New System.Drawing.Size(171, 22)
         Me.TBParValue2.TabIndex = 101
         '
         'TBParName2
         '
-        Me.TBParName2.Location = New System.Drawing.Point(588, 110)
+        Me.TBParName2.Location = New System.Drawing.Point(784, 135)
+        Me.TBParName2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TBParName2.Name = "TBParName2"
-        Me.TBParName2.Size = New System.Drawing.Size(88, 20)
+        Me.TBParName2.Size = New System.Drawing.Size(116, 22)
         Me.TBParName2.TabIndex = 100
         '
         'TBParRange3
         '
-        Me.TBParRange3.Location = New System.Drawing.Point(700, 136)
+        Me.TBParRange3.Location = New System.Drawing.Point(933, 167)
+        Me.TBParRange3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TBParRange3.Name = "TBParRange3"
-        Me.TBParRange3.Size = New System.Drawing.Size(129, 20)
+        Me.TBParRange3.Size = New System.Drawing.Size(171, 22)
         Me.TBParRange3.TabIndex = 103
         Me.TBParRange3.Visible = False
         '
         'TBParName3
         '
-        Me.TBParName3.Location = New System.Drawing.Point(588, 136)
+        Me.TBParName3.Location = New System.Drawing.Point(784, 167)
+        Me.TBParName3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TBParName3.Name = "TBParName3"
-        Me.TBParName3.Size = New System.Drawing.Size(88, 20)
+        Me.TBParName3.Size = New System.Drawing.Size(116, 22)
         Me.TBParName3.TabIndex = 102
         '
         'TBParRange4
         '
-        Me.TBParRange4.Location = New System.Drawing.Point(700, 162)
+        Me.TBParRange4.Location = New System.Drawing.Point(933, 199)
+        Me.TBParRange4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TBParRange4.Name = "TBParRange4"
-        Me.TBParRange4.Size = New System.Drawing.Size(129, 20)
+        Me.TBParRange4.Size = New System.Drawing.Size(171, 22)
         Me.TBParRange4.TabIndex = 105
         Me.TBParRange4.Visible = False
         '
         'TBParName4
         '
-        Me.TBParName4.Location = New System.Drawing.Point(588, 162)
+        Me.TBParName4.Location = New System.Drawing.Point(784, 199)
+        Me.TBParName4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TBParName4.Name = "TBParName4"
-        Me.TBParName4.Size = New System.Drawing.Size(88, 20)
+        Me.TBParName4.Size = New System.Drawing.Size(116, 22)
         Me.TBParName4.TabIndex = 104
         Me.TBParName4.Visible = False
         '
         'TBFEPath
         '
-        Me.TBFEPath.Location = New System.Drawing.Point(497, 41)
+        Me.TBFEPath.Location = New System.Drawing.Point(663, 50)
+        Me.TBFEPath.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TBFEPath.Name = "TBFEPath"
-        Me.TBFEPath.Size = New System.Drawing.Size(433, 20)
+        Me.TBFEPath.Size = New System.Drawing.Size(576, 22)
         Me.TBFEPath.TabIndex = 106
         Me.TBFEPath.Text = "C:\Evolver\"
         Me.TBFEPath.WordWrap = False
@@ -308,9 +335,10 @@ Partial Class Manager
         Me.BtnFEPath.BackColor = System.Drawing.Color.CornflowerBlue
         Me.BtnFEPath.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnFEPath.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnFEPath.Location = New System.Drawing.Point(497, 19)
+        Me.BtnFEPath.Location = New System.Drawing.Point(663, 23)
+        Me.BtnFEPath.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BtnFEPath.Name = "BtnFEPath"
-        Me.BtnFEPath.Size = New System.Drawing.Size(90, 20)
+        Me.BtnFEPath.Size = New System.Drawing.Size(120, 25)
         Me.BtnFEPath.TabIndex = 107
         Me.BtnFEPath.Text = "Browse"
         Me.BtnFEPath.UseVisualStyleBackColor = False
@@ -321,9 +349,9 @@ Partial Class Manager
         '
         'Manager
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(932, 455)
+        Me.ClientSize = New System.Drawing.Size(637, 560)
         Me.Controls.Add(Me.BtnFEPath)
         Me.Controls.Add(Me.TBFEPath)
         Me.Controls.Add(Me.TBParRange4)
@@ -351,6 +379,7 @@ Partial Class Manager
         Me.Controls.Add(Me.btnCurrent)
         Me.Controls.Add(Me.tbPath)
         Me.Controls.Add(Me.btnSetPath)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.Name = "Manager"
         Me.Text = "SE-FIT Multi-Session Manager"
